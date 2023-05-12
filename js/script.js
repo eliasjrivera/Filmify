@@ -1,4 +1,4 @@
-//var APIURL ='https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=47f9f40a1d4ef8eb3fd7dc23d4bba6bf&page=1';
+var APIURL ='https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=47f9f40a1d4ef8eb3fd7dc23d4bba6bf&page=1';
 
 // for show movies if we need to go this route with descriptions (possibly use this and append "learn more" wiki link)
 // <div class="overview">
@@ -13,7 +13,7 @@ var main = document.getElementById('main');
 var form = document.getElementById('form');
 var search = document.getElementById('search');
 
-//getMovies(APIURL);
+getMovies(APIURL);
 
 //waits for url request to show movie data
 async function getMovies(url){
