@@ -1,6 +1,6 @@
 //var APIURL ='https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=47f9f40a1d4ef8eb3fd7dc23d4bba6bf&page=1';
 
-// for show movies if we need to go this route with descriptions (possibly use this and append "learn more" wiki link).
+// for show movies if we need to go this route with descriptions (possibly use this and append "learn more" wiki link)
 // <div class="overview">
 //<h3>Overview:</h3>
 //${overview}
@@ -28,7 +28,7 @@ async function getMovies(url){
 function showMovies(movies){
     main.innerHTML='';
     movies.forEach(movie => {
-        var {poster_path,title,vote_average,}=movie;   // add overview - if we decide to use from tmdb
+        var {poster_path,title,vote_average}=movie;   // add overview - if we decide to use from tmdb
     
         var movieEl = document.createElement('div');
         movieEl.classList.add('movie');
@@ -40,7 +40,8 @@ function showMovies(movies){
             <div class="movie-info">
                 <h3>${title}</h3>
                 <span class="${getClassByRate(vote_average)}">${vote_average}</span>
-            </div> `;
+            </div>   
+            `;
             main.appendChild(movieEl);
     });
 
