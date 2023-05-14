@@ -111,3 +111,16 @@ main {
 .overview h3 {
     margin-top: 0;
 }
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#btn-popup-close {
+    display: inline-block;
+    margin-top: 30px;
+}

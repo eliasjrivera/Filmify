@@ -12,7 +12,10 @@ var SEARCHAPI = "https://api.themoviedb.org/3/search/movie?&api_key=47f9f40a1d4e
 var main = document.getElementById('main');
 var form = document.getElementById('form');
 var search = document.getElementById('search');
-var plot = document.querySelector('.content');
+var plot = document.getElementById('moviePlot');
+var popup = document.getElementById('popup');
+var btnPopupClose = document.getElementById('btn-popup-close');
+var popupMovieTitle = document.getElementById('popup-movie-title');
 
 //getMovies(APIURL);
 
@@ -78,13 +81,16 @@ form.addEventListener("submit", (e) => {
 
 // Getting the movie from the api
 var getMovie = function (title) {
-    var omdbTitleURL = `http://www.omdbapi.com/?t=${title}&apikey=1251d790`
+    var omdbTitleURL = `http://www.omdbapi.com/?t=${title}&apikey=1251d790`;
+
     fetch(omdbTitleURL)
         .then(response => response.json())
         .then(result => {
-            console.log(result);
-            //   console.log(result.Plot);
+            plot.textContent = result.Plot;
+            popupMovieTitle.textContent = result.Title;
+            popup.classList.add('is-active');
         })
+
 
 }
 
@@ -93,6 +99,11 @@ var getPlot = function (event) {
     event.preventDefault();
     var title = event.target.getAttribute("data-attr");
     getMovie(title);
-
 }
 
+// When the popup is activated, click on close to close the popup
+btnPopupClose.addEventListener('click', function () {
+    if (popup.classList.contains('is-active')) {
+        popup.classList.remove('is-active');
+    }
+})
