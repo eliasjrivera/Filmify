@@ -12,6 +12,7 @@ var SEARCHAPI = "https://api.themoviedb.org/3/search/movie?&api_key=47f9f40a1d4e
 var main = document.getElementById('main');
 var form = document.getElementById('form');
 var search = document.getElementById('search');
+var plot = document.querySelector('.content');
 
 //getMovies(APIURL);
 
@@ -41,7 +42,7 @@ function showMovies(movies) {
             <div class="movie-info">
                 <h3>${title}</h3>
                 <span class="${getClassByRate(vote_average)}">${vote_average}</span>
-                <button class="btn-plot" data-attr="${title}">Get Info</button>
+                <button class="btn-plot button is-warning" data-attr="${title}">Get Info</button>
             </div>   
             `;
         main.appendChild(movieEl);
@@ -81,14 +82,17 @@ var getMovie = function (title) {
     fetch(omdbTitleURL)
         .then(response => response.json())
         .then(result => {
-            console.log(result)
+            console.log(result);
+            //   console.log(result.Plot);
         })
+
 }
 
 // getting the relevant movie details in order to get the movie's plot
 var getPlot = function (event) {
-    event.preventDefault()
-    var title = event.target.getAttribute("data-attr")
-    console.log(title)
-    getMovie(title)
+    event.preventDefault();
+    var title = event.target.getAttribute("data-attr");
+    getMovie(title);
+
 }
+
