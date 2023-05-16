@@ -12,6 +12,10 @@ var SEARCHAPI = "https://api.themoviedb.org/3/search/movie?&api_key=47f9f40a1d4e
 var main = document.getElementById('main');
 var form = document.getElementById('form');
 var search = document.getElementById('search');
+var pastSearchesArray = 
+    JSON.parse(localStorage.getItem("pastSearches"))
+    || [];
+console.log(pastSearchesArray);
 
 //getMovies(APIURL);
 
@@ -65,7 +69,14 @@ form.addEventListener("submit",(e)=>{
     var searchTerm =search.value;
 
     if(searchTerm){
+        // first step save local storage  up  
+        pastSearchesArray.push(searchTerm);
+        localStorage.setItem("pastSearches", JSON.stringify(pastSearchesArray))
         getMovies(SEARCHAPI + searchTerm);
         search.value="";
     }
 });
+        // make a function that takes local storage array and makes a button for it
+        // first visit? or multiple visit? we want previous searches to pop up if theyve visited before
+        // on page load, we want local storage to be popped 
+        // add clear history
