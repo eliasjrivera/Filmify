@@ -14,15 +14,24 @@
     
     <title>Filmify</title>
 </head>
+
 <body>
-    <header>
-      <h1 class="title">Filmify</h1>
-      <form id="form">
-        <input type="text" id="search" placeholder="Search" class="search input is-rounded is-focused">  
-      </form>
-      </header>
-      <main id="main"></main>
-    <script src="js/script.js"></script>
+  <header>
+    <form id="form">
+      <input type="text" id="search" placeholder="Search" class="search">
+    </form>
+  </header>
+  <main id="main">
+  </main>
+  <div id="popup" class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+      <h2 id="popup-movie-title" class="title is-4"></h2>
+      <p id="moviePlot"></p>
+      <button id="btn-popup-close" class="button">Close</button>
+    </div>
+  </div>
+  <script src="js/script.js"></script>
 </body>
 
 </html>
