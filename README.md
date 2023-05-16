@@ -10,7 +10,7 @@ N/A
 
 ## Usage
 
-In order to use this app all you need to do is search for a movie in the search input. Then you will be presented with all possible movies that match that title. You can click on the "Get Info" to learn more about the movie's plot. Also, you mosr recent searches will be saved to your search history. 
+In order to use this app all you need to do is search for a movie in the search bar. You will then be presented with all possible movies that match that title. You can click on the "Get Info" to learn more about the movie's plot. Also, your most recent searches will be saved to your search history. 
 
 ![scrrenshot](Screenshot.png)
 ![URL] (https://eliasjrivera.github.io/Filmify/)
