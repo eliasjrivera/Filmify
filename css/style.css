@@ -1,10 +1,14 @@
-.title {
+.main-title {
     font-family: 'Reenie Beanie';
     font-size: 50px;
     color: #fff;
     width: 100vh;
     padding-left: 40px;
     padding-top: 15px;
+}
+
+#popup-movie-title {
+    color: black;
 }
 
 #search {
@@ -66,11 +70,11 @@ header {
     margin-right: 200px;
 }
 
-.search::placeholder{
+.search::placeholder {
     color: #ffffff;
 }
 
-.search input::placeholder{
+.search input::placeholder {
     color: #ffffff;
 }
 

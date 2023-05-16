@@ -1,4 +1,4 @@
-var APIURL ='https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=47f9f40a1d4ef8eb3fd7dc23d4bba6bf&page=1';
+var APIURL = 'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=47f9f40a1d4ef8eb3fd7dc23d4bba6bf&page=1';
 
 // for show movies if we need to go this route with descriptions (possibly use this and append "learn more" wiki link)
 // <div class="overview">
@@ -12,7 +12,7 @@ var SEARCHAPI = "https://api.themoviedb.org/3/search/movie?&api_key=47f9f40a1d4e
 var main = document.getElementById('main');
 var form = document.getElementById('form');
 var search = document.getElementById('search');
-var pastSearchesArray = 
+var pastSearchesArray =
     JSON.parse(localStorage.getItem("pastSearches"))
     || [];
 console.log(pastSearchesArray);
@@ -109,7 +109,7 @@ form.addEventListener("submit", (e) => {
     e.preventDefault();
     var searchTerm = search.value;
 
-    if(searchTerm){
+    if (searchTerm) {
         // first step save local storage  up  
         pastSearchesArray.push(searchTerm);
         localStorage.setItem("pastSearches", JSON.stringify(pastSearchesArray))
@@ -122,7 +122,7 @@ form.addEventListener("submit", (e) => {
 
 // Getting the movie from the api
 var getMovie = function (title) {
-    var omdbTitleURL = `http://www.omdbapi.com/?t=${title}&apikey=1251d790`;
+    var omdbTitleURL = `https://www.omdbapi.com/?t=${title}&apikey=1251d790`;
 
     fetch(omdbTitleURL)
         .then(response => response.json())
@@ -138,6 +138,7 @@ var getMovie = function (title) {
 // getting the relevant movie details in order to get the movie's plot
 var getPlot = function (event) {
     event.preventDefault();
+    console.log(event);
     var title = event.target.getAttribute("data-attr");
     getMovie(title);
 }
