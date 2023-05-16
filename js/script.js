@@ -12,6 +12,10 @@ var SEARCHAPI = "https://api.themoviedb.org/3/search/movie?&api_key=47f9f40a1d4e
 var main = document.getElementById('main');
 var form = document.getElementById('form');
 var search = document.getElementById('search');
+var pastSearchesArray = 
+    JSON.parse(localStorage.getItem("pastSearches"))
+    || [];
+console.log(pastSearchesArray);
 var plot = document.getElementById('moviePlot');
 var popup = document.getElementById('popup');
 var btnPopupClose = document.getElementById('btn-popup-close');
@@ -72,7 +76,10 @@ form.addEventListener("submit", (e) => {
     e.preventDefault();
     var searchTerm = search.value;
 
-    if (searchTerm) {
+    if(searchTerm){
+        // first step save local storage  up  
+        pastSearchesArray.push(searchTerm);
+        localStorage.setItem("pastSearches", JSON.stringify(pastSearchesArray))
         getMovies(SEARCHAPI + searchTerm);
         search.value = "";
     }

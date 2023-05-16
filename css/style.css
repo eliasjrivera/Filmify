@@ -1,6 +1,16 @@
+.title {
+    font-family: 'Reenie Beanie';
+    font-size: 50px;
+    color: #fff;
+    width: 100vh;
+    padding-left: 40px;
+    padding-top: 15px;
+}
+
 #search {
     margin: 0 auto;
-    display: block;
+    margin-top: 20px;
+    margin-right: 500px;
 }
 
 * {
@@ -17,21 +27,25 @@ header {
     background-color: #373b69;
     padding: 1rem;
     display: flex;
-    justify-content: flex-end;
+    flex-direction: row;
+    justify-content: flex-start;
 }
 
 .search {
     background-color: transparent;
     border: 2px solid #22254b;
-    border-radius: 50px;
     color: #fff;
-    padding: 0.5rem 1rem;
     font-family: inherit;
     font-size: 1rem;
+    width: 80vh;
 }
 
-.search input::placeholder {
-    color: #7378c5;
+.search::placeholder{
+    color: #ffffff;
+}
+
+.search input::placeholder{
+    color: #ffffff;
 }
 
 .search:focus {
