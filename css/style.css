@@ -7,6 +7,10 @@
     padding-top: 15px;
 }
 
+#popup-movie-title {
+    color: black;
+}
+
 #search {
     margin: 0 auto;
     margin-top: 20px;
@@ -40,11 +44,11 @@ header {
     width: 80vh;
 }
 
-.search::placeholder{
+.search::placeholder {
     color: #ffffff;
 }
 
-.search input::placeholder{
+.search input::placeholder {
     color: #ffffff;
 }
 
