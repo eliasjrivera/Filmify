@@ -18,7 +18,7 @@
 }
 
 p {
-    color:#fff;
+    /* color:#fff; */
     margin-right: 60px;
 }
 
@@ -46,6 +46,7 @@ header {
 }
 
 .btn {
+    color:#fff;
 }
 
 .history {
