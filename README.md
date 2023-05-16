@@ -24,5 +24,9 @@ N/A
 https://freefrontend.com/css-movie-cards/ for giving good examples on movie cards
 
 https://github.com/eliasjrivera
+
 https://github.com/EgRoku
+
 https://github.com/danabelleli
+
+
