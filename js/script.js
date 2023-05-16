@@ -23,6 +23,39 @@ var popupMovieTitle = document.getElementById('popup-movie-title');
 
 getMovies(APIURL);
 
+var historyButtons = document.getElementById('historyButtons');
+
+var button = document.querySelector('.button');
+
+button.addEventListener("click",clearhistory);
+
+
+function clearhistory() {
+    window.localStorage.clear();
+    pastSearchesArray = [];
+    historyButtons.textContent = "";
+    console.log("click");
+};
+
+// function to create buttons from local storage history with clear history
+var renderSearchHistory = function () {
+    historyButtons.textContent= '';
+
+    if (pastSearchesArray.length > 3) {
+        pastSearchesArray.shift()
+        // pastSearchesArray.push()
+    };
+
+    for (var i = 0; i < 3; i++) {
+        var historyBtn = document.createElement('p');
+        historyBtn.textContent = pastSearchesArray[i];
+        historyBtn.classList.add('btn');
+        historyButtons.appendChild(historyBtn)
+    }
+
+// if statment, equal 5, shift to remove from begining, push from end pop unshift
+}
+
 //waits for url request to show movie data
 async function getMovies(url) {
     var resp = await fetch(url);
@@ -83,6 +116,7 @@ form.addEventListener("submit", (e) => {
         getMovies(SEARCHAPI + searchTerm);
         search.value = "";
     }
+    renderSearchHistory();
 });
 
 
