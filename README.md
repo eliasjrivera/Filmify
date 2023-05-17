@@ -15,6 +15,8 @@ In order to use this app all you need to do is search for a movie in the search 
 ![scrrenshot](Screenshot.png)
 ![URL] (https://eliasjrivera.github.io/Filmify/)
 
+## Technologies Used 
+API: OMDB, TMDB; Made in VSCODE: HTML, CSS, Javascript; GitHub; Google Doc; Google Slide; Bulma
 
 ## License
 
