@@ -12,13 +12,23 @@
 }
 
 #search {
-    margin: 0 auto;
+    /* margin: 0 auto; */
     margin-top: 20px;
-    margin-right: 500px;
+    margin-right: 75px;
+}
+
+p {
+    /* color:#fff; */
+    margin-right: 60px;
 }
 
 * {
     box-sizing: border-box;
+}
+
+.button {
+    margin-top: 20px;
+    margin-right: 25px;
 }
 
 body {
@@ -35,13 +45,30 @@ header {
     justify-content: flex-start;
 }
 
+.btn {
+    color:#fff;
+}
+
+.history {
+    width: 100vh;
+    padding-right: 50px;
+    color: #fff;
+    font-family: 'Reenie Beanie';
+    font-size: 25px;
+    padding-top: 15px;
+}
+
 .search {
     background-color: transparent;
     border: 2px solid #22254b;
     color: #fff;
     font-family: inherit;
     font-size: 1rem;
-    width: 80vh;
+    width: 100vh;
+}
+
+.historyButtons {
+    margin-right: 200px;
 }
 
 .search::placeholder {
