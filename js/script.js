@@ -1,4 +1,4 @@
-var APIURL = 'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=47f9f40a1d4ef8eb3fd7dc23d4bba6bf&page=1'; 
+var APIURL = 'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=47f9f40a1d4ef8eb3fd7dc23d4bba6bf&page=1';
 
 var IMGPATH = 'https://image.tmdb.org/t/p/w1280';
 var SEARCHAPI = "https://api.themoviedb.org/3/search/movie?&api_key=47f9f40a1d4ef8eb3fd7dc23d4bba6bf&query=";
@@ -6,6 +6,7 @@ var SEARCHAPI = "https://api.themoviedb.org/3/search/movie?&api_key=47f9f40a1d4e
 var main = document.getElementById('main');
 var form = document.getElementById('form');
 var search = document.getElementById('search');
+// the variable pastSearchesArray gets items from local storage
 var pastSearchesArray =
     JSON.parse(localStorage.getItem("pastSearches"))
     || [];
@@ -17,13 +18,14 @@ var popupMovieTitle = document.getElementById('popup-movie-title');
 
 getMovies(APIURL);
 
+// variables for history section in header
 var historyButtons = document.getElementById('historyButtons');
-
 var button = document.querySelector('.button');
 
+// event listener for clear history button that calls the function clear history
 button.addEventListener("click", clearhistory);
 
-
+// function to clear from local storage
 function clearhistory() {
     window.localStorage.clear();
     pastSearchesArray = [];
@@ -31,24 +33,21 @@ function clearhistory() {
     console.log("click");
 };
 
-// function to create buttons from local storage history with clear history
+// function to create history info from local storage
 var renderSearchHistory = function () {
     historyButtons.textContent = '';
 
     if (pastSearchesArray.length > 3) {
         pastSearchesArray.shift()
-        // pastSearchesArray.push()
     };
 
     for (var i = 0; i < 3; i++) {
         var historyBtn = document.createElement('p');
         historyBtn.textContent = pastSearchesArray[i];
         historyBtn.classList.add('btn');
-        historyButtons.appendChild(historyBtn)
-    }
-
-    // if statment, equal 5, shift to remove from begining, push from end pop unshift
-}
+        historyButtons.appendChild(historyBtn);
+    };
+};
 
 //waits for url request to show movie data
 async function getMovies(url) {
@@ -83,8 +82,7 @@ function showMovies(movies) {
     });
     // Adding an event listener to the get more info button
     document.querySelectorAll(".btn-plot").forEach(element => element.addEventListener("click", getPlot));
-
-}
+};
 
 // adds color coding to rating WIP
 function getClassByRate(vote) {
@@ -104,9 +102,9 @@ form.addEventListener("submit", (e) => {
     var searchTerm = search.value;
 
     if (searchTerm) {
-        // first step save local storage  up  
         pastSearchesArray.push(searchTerm);
-        localStorage.setItem("pastSearches", JSON.stringify(pastSearchesArray))
+        // this sets the item to local storage
+        localStorage.setItem("pastSearches", JSON.stringify(pastSearchesArray));
         getMovies(SEARCHAPI + searchTerm);
         search.value = "";
     }
@@ -126,9 +124,7 @@ var getMovie = function (title) {
             popupMovieTitle.textContent = result.Title;
             popup.classList.add('is-active');
         })
-
-
-}
+};
 
 // getting the relevant movie details in order to get the movie's plot
 var getPlot = function (event) {
