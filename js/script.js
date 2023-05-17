@@ -35,7 +35,7 @@ function clearhistory() {
 
 // function to create history info from local storage
 var renderSearchHistory = function () {
-    historyButtons.textContent= '';
+    historyButtons.textContent = '';
 
     if (pastSearchesArray.length > 3) {
         pastSearchesArray.shift()
@@ -119,6 +119,7 @@ var getMovie = function (title) {
     fetch(omdbTitleURL)
         .then(response => response.json())
         .then(result => {
+            // setting the title and plot text content 
             plot.textContent = result.Plot;
             popupMovieTitle.textContent = result.Title;
             popup.classList.add('is-active');
@@ -130,6 +131,7 @@ var getPlot = function (event) {
     event.preventDefault();
     console.log(event);
     var title = event.target.getAttribute("data-attr");
+    // calling the getMovie function with the relevant movie 
     getMovie(title);
 }
 
