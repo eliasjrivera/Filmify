@@ -27,7 +27,7 @@ var historyButtons = document.getElementById('historyButtons');
 
 var button = document.querySelector('.button');
 
-button.addEventListener("click",clearhistory);
+button.addEventListener("click", clearhistory);
 
 
 function clearhistory() {
@@ -39,7 +39,7 @@ function clearhistory() {
 
 // function to create buttons from local storage history with clear history
 var renderSearchHistory = function () {
-    historyButtons.textContent= '';
+    historyButtons.textContent = '';
 
     if (pastSearchesArray.length > 3) {
         pastSearchesArray.shift()
@@ -53,7 +53,7 @@ var renderSearchHistory = function () {
         historyButtons.appendChild(historyBtn)
     }
 
-// if statment, equal 5, shift to remove from begining, push from end pop unshift
+    // if statment, equal 5, shift to remove from begining, push from end pop unshift
 }
 
 //waits for url request to show movie data
@@ -127,6 +127,7 @@ var getMovie = function (title) {
     fetch(omdbTitleURL)
         .then(response => response.json())
         .then(result => {
+            // setting the title and plot text content 
             plot.textContent = result.Plot;
             popupMovieTitle.textContent = result.Title;
             popup.classList.add('is-active');
@@ -140,6 +141,7 @@ var getPlot = function (event) {
     event.preventDefault();
     console.log(event);
     var title = event.target.getAttribute("data-attr");
+    // calling the getMovie function with the relevant movie 
     getMovie(title);
 }
 
